@@ -1,12 +1,10 @@
 # Spring Batch Processing
 
 ## Overview
-
 This project was created to practice batch processing scenarios using Spring Batch. The application reads transaction
 records from a CSV file, applies business rules, and stores the results in a relational database.
 
 ## Technologies
-
 * Java 21
 * Spring Boot 3
 * Spring Batch 5
@@ -16,7 +14,6 @@ records from a CSV file, applies business rules, and stores the results in a rel
 * Lombok
 
 ## Features
-
 * Read transactions from CSV files
 * Validate transaction data
 * Ignore duplicate transactions
@@ -27,7 +24,6 @@ records from a CSV file, applies business rules, and stores the results in a rel
 ## Getting Started
 
 ### Prerequisites
-
 To run this project locally, ensure you have:
 
 * [Java 21](https://docs.oracle.com/en/java/javase/21/)
@@ -37,10 +33,19 @@ To run this project locally, ensure you have:
 * [Docker Compose](https://docs.docker.com/compose/)
 
 ### Running the application
-
 Run the following commands on the project root folder:
-
 ```
 mvn clean package
 docker compose up --build
+```
+
+### Running the Batch Job
+Trigger the import process by calling the API endpoint:
+```
+curl --request POST http://localhost:8080/api/transactions
+```
+
+Expected response:
+```
+Job started successfully
 ```
