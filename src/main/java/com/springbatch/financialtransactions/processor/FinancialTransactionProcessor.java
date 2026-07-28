@@ -21,7 +21,7 @@ public class FinancialTransactionProcessor implements ItemProcessor<Transaction,
   @Getter private int suspiciousCount;
 
   @Override
-  public Transaction process(@NonNull Transaction transaction) throws Exception {
+  public Transaction process(@NonNull Transaction transaction) {
 
     if (isDuplicate(transaction)) {
       duplicateTransactionCount++;
@@ -47,7 +47,7 @@ public class FinancialTransactionProcessor implements ItemProcessor<Transaction,
         || transaction.getAmount().compareTo(BigDecimal.ZERO) <= 0;
   }
 
-  private void validateTransactionAccount(Transaction transaction) throws Exception {
+  private void validateTransactionAccount(Transaction transaction) {
     if (transaction.getSourceAccount().isBlank() || transaction.getDestinationAccount().isBlank()) {
       invalidAccountCount++;
     }
